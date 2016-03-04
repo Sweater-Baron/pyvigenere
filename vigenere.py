@@ -32,13 +32,12 @@ class CryptoAlphabet(object):
         """
         result = []
         key = key.lower()
-        key = [char for char in key] #Convert key from string to list of characters
-        for i in range(len(key)):
-        # Remove characters from the key if they are not in the alphabet
-        # that we are using:
-            if key[i] not in self._letter_index:
-                key.pop(i) #This is O(len(key)), rather than constant time
-                # TODO: Maybe replace this with something that is constant time?
+        keyList = []
+        #Convert key from string to list of characters:
+        for character in key:
+            if character in self._letter_index:
+                # Only valid characters should be in key
+                keyList.append(character)
         keyIndex = 0
         
         for char in plaintext:
@@ -49,7 +48,7 @@ class CryptoAlphabet(object):
                 is_capital = char.isupper()
                 char = char.lower()
                 letterVal = self._letter_index[char]
-                keyVal = self._letter_index[key[keyIndex]]
+                keyVal = self._letter_index[keyList[keyIndex]]
                 if decrypt: #To decrypt, we subtract keyVal instead of adding it
                     keyVal *= -1
                 newChar = self._alphabet[(letterVal + keyVal) % self._alphaSize]
