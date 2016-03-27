@@ -19,8 +19,14 @@ class CryptoAlphabet(object):
     
     
     def __init__(self, alphabetString):
-        """
-        TODO: Add documentation
+        """Creates a CryptoAlphabet object.
+        
+        Args:
+            alphabetString: A string containing each letter of your alphabet,
+                in order
+        
+        Returns:
+            A CryptoAlphabet object for the given alphabet
         """
         self._alphabet = alphabetString.lower()
         self._alphaSize = len(self._alphabet)
