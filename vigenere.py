@@ -8,9 +8,7 @@ Allows working with non-Latin alphabets
 
 class CryptoAlphabet(object):
     """
-    A class that represents a particular alphabet.
-    
-    TODO: Add more detailed documentation
+    A class that represents a particular alphabet. (E.g. Latin, Cyrillic)
     """
     _alphabet = ""
     _alphaSize = 0
